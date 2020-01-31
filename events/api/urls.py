@@ -10,7 +10,7 @@ urlpatterns = [
     path('teste/<int:pk>/', EventRudView.as_view(), name='post-rud'),
     path('teste/', EventAPIView.as_view(), name='post-create'),
     path('nocs/', NocFilterView.as_view(), name='noc-list'),
-    path('nocs/<int:pk>/', NocRudView.as_view(), name='noc-list'),
-    path('nocs/', NocAPIView.as_view(), name='noc-list')
+    path('nocs/<int:pk>/', NocRudView.as_view(), name='noc-rud'),
+    path('nocs/', NocAPIView.as_view(), name='noc-create')
 ]
 

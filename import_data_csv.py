@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
     Script to import book data from .csv file to Model Database DJango
     To execute this script run: 
@@ -8,16 +6,21 @@
 """
 
 import csv
-from events.models import Noc
+from events.models import Noc, Events
 
-def run():
-    fhand = open('../noc_regions')
-    reader = csv.reader(fhand)
+CSV_PATH = '../noc_regions.csv'      # Csv file path 
+CSV_PATH_EVENT = '../athlete_events.csv'      # Csv file path   
 
-    Noc.objects.all().delete()
+contSuccess_noc = 0
+# Remove all data from Table
+Noc.objects.all().delete()
 
-    for row in reader:
-        print(row)
+with open(CSV_PATH, newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    print('Loading...')
+    for row in spamreader:
+        Noc.objects.create(noc=row[0], region=row[1], notes=row[2])
+        contSuccess_noc += 1
+    print(f'{str(contSuccess_noc)} inserted successfully (NOC)! ')
 
-        #p, created = Noc.objects.get_or_create(NOC=row[0])
 

@@ -6,21 +6,24 @@ class Events(models.Model):
     identification = models.SmallIntegerField()
     name = models.CharField(max_length=255, null=False)
     sex  = models.CharField(max_length=1, null=False)
-    age  = models.SmallIntegerField()
-    height = models.SmallIntegerField()
-    weight = models.SmallIntegerField()
+    age  = models.IntegerField()
+    height = models.IntegerField()
+    weight = models.IntegerField()
     team   = models.CharField(max_length=40, null=False)
     noc    = models.ForeignKey('Noc', on_delete=models.CASCADE)
     games  = models.CharField(max_length = 40, null=False)
-    year   = models.SmallIntegerField(null=False)
-    season = models.CharField(max_length = 40, null=False)
+    year   = models.IntegerField()
+    season = models.CharField(max_length = 40)
     city   = models.CharField(max_length = 40, null=False)
-    sport  = models.CharField(max_length = 40, null=False)
+    sport  = models.CharField(max_length = 40)
     event  = models.CharField(max_length = 40, null=False)
     medal  = models.CharField(max_length = 10)
 
     def __str__(self):
         return self.name
+    
+    def get_api_url(self, request=None):
+        return api_reverse("api-postings:post-rud", kwargs={'pk': self.pk}, request=request)
 
 class Noc(models.Model):
     noc = models.CharField(max_length=3, null=False)
