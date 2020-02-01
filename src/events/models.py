@@ -1,5 +1,7 @@
 from django.db import models
 
+from rest_framework.reverse import reverse
+
 # Create your models here.
 class Event(models.Model):
     identification = models.SmallIntegerField()
@@ -21,10 +23,17 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+    def get_api_url(self, request=None):
+        return reverse("api-events:event-detail", kwargs={'pk': self.pk}, request=request)
+
+
 class Comitees(models.Model):
     noc     = models.CharField(max_length=255, null=False)
     region  = models.CharField(max_length=255, null=False)
     notes   = models.CharField(max_length=100, blank=True, null=True, default='')
 
     def __str__(self):
-        return str(self.noc)
+        return self.noc
+
+    def get_api_url(self, request=None):
+        return reverse("api-events:comitee-detail", kwargs={'pk': self.pk}, request=request)
