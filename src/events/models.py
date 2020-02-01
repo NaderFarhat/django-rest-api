@@ -24,7 +24,7 @@ class Event(models.Model):
 class Comitees(models.Model):
     noc = models.CharField(max_length=255, null=False)
     region = models.CharField(max_length=255, null=False)
-    notes = models.TextField(max_length=255)
+    notes = models.CharField(max_length=100, blank=True, null=True, default='')
 
     def __str__(self):
         return str(self.noc)
