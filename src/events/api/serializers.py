@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from events.models import Event, Comitees
+from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 class ComiteesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,7 +12,7 @@ class ComiteesSerializer(serializers.ModelSerializer):
             'notes'
         ]
 
-class EventsSerializer(serializers.ModelSerializer):
+class EventsSerializer(WritableNestedModelSerializer):
     noc = ComiteesSerializer(many=False)
     
     class Meta:
