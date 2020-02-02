@@ -26,7 +26,7 @@ SECRET_KEY = 'l!ex50p5r_hz(wt=z6z!d459=wi0yd=2idj$4hayyl#j8q4)j$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['teste-django-deploy.herokuapp.com', '*']
+ALLOWED_HOSTS = ['teste-django-deploy.herokuapp.com', '*', 'localhost']
 
 
 # Application definition
@@ -82,12 +82,8 @@ WSGI_APPLICATION = 'myapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'desafio_dev',
-        'USER': 'postgres',
-        'PASSWORD':'mandaha23',
-        'HOST' : 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
