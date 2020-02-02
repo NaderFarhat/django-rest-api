@@ -4,7 +4,7 @@ from rest_framework.reverse import reverse
 
 # Create your models here.
 class Event(models.Model):
-    identification = models.SmallIntegerField()
+    identification = models.IntegerField()
     name    = models.CharField(max_length=255, null=False)
     sex     = models.CharField(max_length=255, null=False)
     age     = models.CharField(max_length=255, null=True)

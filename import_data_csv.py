@@ -43,7 +43,9 @@ with open(CSV_PATH_EVENT, newline='') as f:
             if row[0] == 'ID':
                 pass
             else:
-                print("add")
+                print(row[0])
+                print(row[1])
+                print(row[2])
                 Event.objects.create(
                     identification=row[0],
                     name=row[1],
