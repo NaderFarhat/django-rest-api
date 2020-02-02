@@ -12,7 +12,7 @@ class EventAPIView(generics.ListCreateAPIView):
     pagination_class = PostLimitOffsetPagination
 
     def get_queryset(self):
-        return Event.objects.all()[:50]
+        return Event.objects.all()
     
 
 class EventRudView(generics.RetrieveUpdateDestroyAPIView):
@@ -27,9 +27,10 @@ class ComiteeAPIView(generics.ListCreateAPIView):
     serializer_class = ComiteesSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = '__all__'
+    pagination_class = PostLimitOffsetPagination
 
     def get_queryset(self):
-        return Comitees.objects.all()[:50]
+        return Comitees.objects.all()
 
 class ComiteeRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
