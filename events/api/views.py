@@ -1,6 +1,7 @@
 from rest_framework import generics
 from events.models import Event, Comitees
 from .serializers import EventsSerializer, ComiteesSerializer
+from .pagination import PostLimitOffsetPagination
 from django_filters import rest_framework as filters
 
 class EventAPIView(generics.ListCreateAPIView):
@@ -8,6 +9,7 @@ class EventAPIView(generics.ListCreateAPIView):
     serializer_class = EventsSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = '__all__'
+    pagination_class = PostLimitOffsetPagination
 
     def get_queryset(self):
         return Event.objects.all()[:50]
