@@ -6,8 +6,8 @@
 import csv
 from events.models import Comitees, Event
 
-CSV_PATH = '../noc_regions.csv' 
-CSV_PATH_EVENT = '../athlete_events.csv' 
+CSV_PATH = 'noc_regions.csv' 
+CSV_PATH_EVENT = 'athlete_events.csv' 
 
 contSuccess_noc = 0
 contSuccess_evt = 0
