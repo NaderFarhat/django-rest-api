@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from events.models import Events, Noc
+from events.models import Event, Comitees
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 
-class NocSerializer(serializers.ModelSerializer):
+class ComiteesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Noc
+        model = Comitees
         fields = [
             'id',
             'noc',
@@ -13,10 +13,10 @@ class NocSerializer(serializers.ModelSerializer):
         ]
 
 class EventsSerializer(WritableNestedModelSerializer):
-    noc = NocSerializer(many=False)
+    noc = ComiteesSerializer(many=False)
     
     class Meta:
-        model = Events
+        model = Event
         fields = [
             'id',
             'identification',
@@ -36,6 +36,3 @@ class EventsSerializer(WritableNestedModelSerializer):
             'medal',
 
         ]
-
-        
-

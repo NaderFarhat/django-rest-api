@@ -1,45 +1,36 @@
 from rest_framework import generics
-from events.models import Events, Noc
-from .serializers import EventsSerializer, NocSerializer
+from events.models import Event, Comitees
+from .serializers import EventsSerializer, ComiteesSerializer
 from django_filters import rest_framework as filters
 
-
-class EventFilterView(generics.ListCreateAPIView):
-    queryset = Events.objects.all()
+class EventAPIView(generics.ListCreateAPIView):
+    lookup_field = 'pk'
     serializer_class = EventsSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = '__all__'
 
-class EventAPIView(generics.CreateAPIView):
-    lookup_field = 'pk'
-    serializer_class = EventsSerializer
-
     def get_queryset(self):
-        return Events.objects.all()
+        return Event.objects.all()[:50]
+    
 
 class EventRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
     serializer_class = EventsSerializer
 
     def get_queryset(self):
-        return Events.objects.all()
-        
-class NocFilterView(generics.ListCreateAPIView):
-    queryset = Noc.objects.all()
-    serializer_class = NocSerializer
+        return Event.objects.all()
+
+class ComiteeAPIView(generics.ListCreateAPIView):
+    lookup_field = 'pk'
+    serializer_class = ComiteesSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = '__all__'
 
-class NocAPIView(generics.CreateAPIView):
-    lookup_field = 'pk'
-    serializer_class = NocSerializer
-
     def get_queryset(self):
-        return Noc.objects.all()
+        return Comitees.objects.all()[:50]
 
-class NocRudView(generics.RetrieveUpdateDestroyAPIView):
+class ComiteeRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
-    serializer_class = NocSerializer
-
-    def get_queryset(self):
-        return Noc.objects.all()
+    serializer_class = ComiteesSerializer
+    queryset = Comitees.objects.all()
+        
