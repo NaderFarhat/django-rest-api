@@ -4,7 +4,7 @@
 """
 
 import csv
-from events.models import Comitees, Event, Athlete, Game
+from events.models import Comitees, Event, Athlete
 
 CSV_PATH = 'noc_regions.csv' 
 CSV_PATH_EVENT = 'athlete_events.csv' 
@@ -16,7 +16,6 @@ contSuccess_ath = 0
 Comitees.objects.all().delete()
 Event.objects.all().delete()
 Athlete.objects.all().delete()
-Game.objects.all().delete()
 
 
 with open(CSV_PATH, newline='') as csvfile:
@@ -53,17 +52,15 @@ with open(CSV_PATH_EVENT, newline='') as f:
                 pass
             else:
                 print(row[1])
-                game = Game(
-                    sport=row[12],
-                    event=row[13],
-                    medal=row[14]
-                )
-                game.save()
                 evt = Event(
-                   games=row[8],
-                   year=row[9],
-                   season=row[10],
-                   city = row[11]
+                    team = row[6],
+                    games=row[8],
+                    year=row[9],
+                    season=row[10],
+                    city = row[11],
+                    sport = row[12],
+                    event = row[13],
+                    medal = row[14]
                 )
                 evt.save()
                 ath = Athlete(
@@ -73,8 +70,7 @@ with open(CSV_PATH_EVENT, newline='') as f:
                     height=row[4],
                     weight=row[5],
                     noc=Comitees.objects.create(noc=filterNoc['noc'], region=filterNoc['region'], notes=['notes']),
-                    event=evt,
-                    game=game
+                    event=evt
                 )
 
                 ath.save()

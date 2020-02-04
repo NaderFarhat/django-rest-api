@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from events.models import Event, Comitees, Athlete, Game
+from events.models import Event, Comitees, Athlete
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 class ComiteesSerializer(serializers.ModelSerializer):
@@ -12,33 +12,25 @@ class ComiteesSerializer(serializers.ModelSerializer):
             'notes'
         ]
 
-class GameSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Game
-        fields = [
-            'id',
-            'sport',
-            'event',
-            'medal'
-        ]
-
-
-class EventsSerializer(WritableNestedModelSerializer):
+class EventsSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Event
         fields = [
             'id',
+            'team',
             'games',
-            'year',
-            'season',
-            'city'
+            'year', 
+            'season', 
+            'city', 
+            'sport',
+            'event',
+            'medal'
         ]
 
 class AthleteSerializer(WritableNestedModelSerializer):
     noc = ComiteesSerializer(many=False)
     event = EventsSerializer(many=False)
-    game = GameSerializer(many=False)
 
     class Meta:
         model = Athlete
@@ -50,6 +42,5 @@ class AthleteSerializer(WritableNestedModelSerializer):
             'height',
             'weight',
             'noc',
-            'event',
-            'game'
+            'event'
         ]

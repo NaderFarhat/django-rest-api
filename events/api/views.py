@@ -1,6 +1,6 @@
 from rest_framework import generics
-from events.models import Event, Comitees, Athlete, Game
-from .serializers import EventsSerializer, ComiteesSerializer, AthleteSerializer, GameSerializer
+from events.models import Event, Comitees, Athlete
+from .serializers import EventsSerializer, ComiteesSerializer, AthleteSerializer
 from .pagination import PostLimitOffsetPagination
 from django_filters import rest_framework as filters
 from rest_framework.reverse import reverse_lazy
@@ -12,7 +12,6 @@ class ApiRootView(APIView):
     def get(self, request):
         data = {
             'list-comitees': reverse_lazy('api-events:com-list', request=request),
-            'list-games': reverse_lazy('api-events:game-list', request=request),
             'list-events': reverse_lazy('api-events:event-list', request=request),
             'list-athletes': reverse_lazy('api-events:athlete-list', request=request),
         }
@@ -35,24 +34,6 @@ class EventRudView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Event.objects.all()
-
-class GameAPIView(generics.ListCreateAPIView):
-    lookup_field = 'pk'
-    serializer_class = GameSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = '__all__'
-    pagination_class = PostLimitOffsetPagination
-
-    def get_queryset(self):
-        return Game.objects.all()
-    
-
-class GameRudView(generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'pk'
-    serializer_class = GameSerializer
-
-    def get_queryset(self):
-        return Game.objects.all()
 
 class ComiteeAPIView(generics.ListCreateAPIView):
     lookup_field = 'pk'

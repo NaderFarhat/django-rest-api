@@ -13,26 +13,17 @@ class Comitees(models.Model):
     def get_api_url(self, request=None):
         return reverse("api-events:comitee-detail", kwargs={'pk': self.pk}, request=request)
 
-class Game(models.Model):
-    id      = models.AutoField(primary_key=True)
-    sport   = models.CharField(max_length = 255, null=False)
-    event   = models.CharField(max_length = 255, null=False)
-    medal   = models.CharField(max_length = 255)
 
-    def __str__(self):
-        return self.sport
-
-    def get_api_url(self, request=None):
-        return reverse("api-events:comitee-detail", kwargs={'pk': self.pk}, request=request)
-
-
-# Create your models here.
 class Event(models.Model):
-    id = models.AutoField(primary_key=True)
-    games   = models.CharField(max_length = 255, null=False)
-    year    = models.CharField(max_length = 255, null=False)
-    season  = models.CharField(max_length = 255)
-    city    = models.CharField(max_length = 255, null=False)
+    
+    team = models.CharField(max_length=100)
+    games = models.CharField(max_length=25)
+    year = models.IntegerField()
+    season = models.CharField(max_length=25)
+    city = models.CharField(max_length=20)
+    sport = models.CharField(max_length=35)
+    event = models.CharField(max_length=80)
+    medal = models.CharField(max_length=10)
 
 
     def __str__(self):
@@ -43,21 +34,21 @@ class Event(models.Model):
 
 
 class Athlete(models.Model):
-    id = models.AutoField(primary_key=True)
-    name    = models.CharField(max_length=255, null=False)
-    sex     = models.CharField(max_length=255, null=False)
-    age     = models.CharField(max_length=255, null=True)
-    height  = models.CharField(max_length=255, null=True)
-    weight  = models.CharField(max_length=255, null=True)
-    #team    = models.CharField(max_length=255, null=False)
-    noc     = models.ForeignKey('Comitees', on_delete=models.CASCADE)
-    event   = models.ForeignKey('Event', on_delete=models.CASCADE)
-    game    = models.ForeignKey('Game', on_delete=models.CASCADE)
-    
+    name = models.CharField(max_length=100)
+    sex = models.CharField(max_length=2)
+    age = models.CharField(max_length=4)
+    height = models.CharField(max_length=6)
+    weight = models.CharField(max_length=6)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    noc = models.ForeignKey(Comitees, on_delete=models.CASCADE)
+
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     def get_api_url(self, request=None):
-        return reverse("api-events:event-detail", kwargs={'pk': self.pk}, request=request)
+        return reverse("api-events:athlete-detail", kwargs={'pk': self.pk}, request=request)
+
+
+
 
 
