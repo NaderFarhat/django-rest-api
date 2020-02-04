@@ -2,7 +2,7 @@
 
 ## About The Project
 
-This project contains the implementation of the Celero Challenge Back-End, using Django and Django REST Framework. The project is deployed in Heroku [sleepy-lake-15903](https://sleepy-lake-15903.herokuapp.com/api/events/list/)
+This project contains the implementation of the Celero Challenge Back-End, using Django and Django REST Framework. The project is deployed in Heroku [safe-reef-79435](https://safe-reef-79435.herokuapp.com/api/events/list/)
 
 ### Built With
 
@@ -54,17 +54,6 @@ python manage.py tests
 ```
 ## API endpoints
 
-### Game
-
-| Method        | Url                                                           | Description        |
-| ------------- |:--------------------------------------------------------:     | ------------------:|
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/game/      |   List all games   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/game/(:id) |   Info of one game.|
-| POST          | https://sleepy-lake-15903.herokuapp.com/api/events/game/      |   Create new game  |
-| PATCH         | https://sleepy-lake-15903.herokuapp.com/api/events/game/(:id) |   Update game.     |
-| PUT           | https://sleepy-lake-15903.herokuapp.com/api/events/game/(:id) |   Update game(all) |
-| DELETE        | https://sleepy-lake-15903.herokuapp.com/api/events/game/(:id) |   Delete game.     |
-
 ### Comitee
 
 | Method        | Url                                                           | Description           |
@@ -102,4 +91,4 @@ python manage.py tests
 
 ### Example
 
-* https://sleepy-lake-15903.herokuapp.com/api/events/game/?sport=Basketball
+* safe-reef-79435.herokuapp.com/api/events/ath/?name=Arvi+Aavik
