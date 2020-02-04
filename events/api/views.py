@@ -3,6 +3,20 @@ from events.models import Event, Comitees, Athlete, Game
 from .serializers import EventsSerializer, ComiteesSerializer, AthleteSerializer, GameSerializer
 from .pagination import PostLimitOffsetPagination
 from django_filters import rest_framework as filters
+from rest_framework.reverse import reverse_lazy
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+
+class ApiRootView(APIView):
+    def get(self, request):
+        data = {
+            'list-comitees': reverse_lazy('api-events:com-list', request=request),
+            'list-games': reverse_lazy('api-events:game-list', request=request),
+            'list-events': reverse_lazy('api-events:event-list', request=request),
+            'list-athletes': reverse_lazy('api-events:athlete-list', request=request),
+        }
+        return Response(data)
 
 class EventAPIView(generics.ListCreateAPIView):
     lookup_field = 'pk'
