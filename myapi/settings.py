@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'myapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # django.db.backends.sqlite3
-
-""" DATABASES = {
+""" 
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -88,8 +88,8 @@ WSGI_APPLICATION = 'myapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'celero_database',
-        'USER': 'myprojectuser',
+        'NAME': 'mydb',
+        'USER': 'myuser',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
