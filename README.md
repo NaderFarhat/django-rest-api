@@ -58,34 +58,34 @@ python manage.py tests
 
 | Method        | Url                                                           | Description           |
 | ------------- |:--------------------------------------------------------:     | ------------------:   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/com/         |   List all comitees   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/com/(:id)    |   Info of one comitee.|
-| POST          | https://sleepy-lake-15903.herokuapp.com/api/events/com/         |   Create new comitee  |
-| PATCH         | https://sleepy-lake-15903.herokuapp.com/api/events/com/(:id)    |   Update comitee.     |
-| PUT           | https://sleepy-lake-15903.herokuapp.com/api/events/com/(:id)    |   Update comitee(all) |
-| DELETE        | https://sleepy-lake-15903.herokuapp.com/api/events/com/(:id)    |   Delete comitee.     |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/com/         |   List all comitees   |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/com/(:id)    |   Info of one comitee.|
+| POST          | https://safe-reef-79435.herokuapp.com/api/events/com/         |   Create new comitee  |
+| PATCH         | https://safe-reef-79435.herokuapp.com/api/events/com/(:id)    |   Update comitee.     |
+| PUT           | https://safe-reef-79435.herokuapp.com/api/events/com/(:id)    |   Update comitee(all) |
+| DELETE        | https://safe-reef-79435.herokuapp.com/api/events/com/(:id)    |   Delete comitee.     |
 
 ### Event
 
 | Method        | Url                                                           | Description           |
 | ------------- |:--------------------------------------------------------:     | ------------------:   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/evt/         |   List all Events   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/evt/(:id)    |   Info of one Event.|
-| POST          | https://sleepy-lake-15903.herokuapp.com/api/events/evt/         |   Create new Event  |
-| PATCH         | https://sleepy-lake-15903.herokuapp.com/api/events/evt/(:id)    |   Update Event.     |
-| PUT           | https://sleepy-lake-15903.herokuapp.com/api/events/evt/(:id)    |   Update Event(all) |
-| DELETE        | https://sleepy-lake-15903.herokuapp.com/api/events/evt/(:id)    |   Delete Event.     |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/evt/         |   List all Events   |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/evt/(:id)    |   Info of one Event.|
+| POST          | https://safe-reef-79435.herokuapp.com/api/events/evt/         |   Create new Event  |
+| PATCH         | https://safe-reef-79435.herokuapp.com/api/events/evt/(:id)    |   Update Event.     |
+| PUT           | https://safe-reef-79435.herokuapp.com/api/events/evt/(:id)    |   Update Event(all) |
+| DELETE        | https://safe-reef-79435.herokuapp.com/api/events/evt/(:id)    |   Delete Event.     |
 
 ### Athlete
 
 | Method        | Url                                                           | Description           |
 | ------------- |:--------------------------------------------------------:     | ------------------:   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/ath/         |   List all Athlete   |
-| GET           | https://sleepy-lake-15903.herokuapp.com/api/events/ath/(:id)    |   Info of one Athlete.|
-| POST          | https://sleepy-lake-15903.herokuapp.com/api/events/ath/         |   Create new Athlete  |
-| PATCH         | https://sleepy-lake-15903.herokuapp.com/api/events/ath/(:id)    |   Update Athlete.     |
-| PUT           | https://sleepy-lake-15903.herokuapp.com/api/events/ath/(:id)    |   Update Athlete(all) |
-| DELETE        | https://sleepy-lake-15903.herokuapp.com/api/events/ath/(:id)    |   Delete Athlete.     |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/ath/         |   List all Athlete   |
+| GET           | https://safe-reef-79435.herokuapp.com/api/events/ath/(:id)    |   Info of one Athlete.|
+| POST          | https://safe-reef-79435.herokuapp.com/api/events/ath/         |   Create new Athlete  |
+| PATCH         | https://safe-reef-79435.herokuapp.com/api/events/ath/(:id)    |   Update Athlete.     |
+| PUT           | https://safe-reef-79435.herokuapp.com/api/events/ath/(:id)    |   Update Athlete(all) |
+| DELETE        | https://safe-reef-79435.herokuapp.com/api/events/ath/(:id)    |   Delete Athlete.     |
 
 ## Filtering Attributes
 
